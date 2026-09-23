@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Конкурентный анализ: сайты технического обеспечения мероприятий</title>
+<meta name="description" content="Разбор 19 сайтов компаний, которые дают звук, свет и экраны на мероприятия: Россия, СНГ, Европа, США, Япония, Китай. Что у них есть, чего нет и что взять для сайта «Спектр».">
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --bg:#0e1014; --bg2:#151921; --card:#1a1f29; --line:#2a3140;
+    --text:#e8eaf0; --muted:#9aa3b5; --accent:#f5b342; --accent2:#ff7a45;
+    --ok:#4fd18b; --no:#ff6b6b; --so:#f5b342;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif}
+  a{color:var(--accent)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  header{background:radial-gradient(1200px 500px at 20% -10%,rgba(245,179,66,.22),transparent 60%),radial-gradient(900px 400px at 90% 0%,rgba(255,122,69,.16),transparent 60%),var(--bg2);border-bottom:1px solid var(--line);padding:56px 0 40px}
+  .eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:600}
+  h1{font-size:clamp(28px,4.5vw,44px);line-height:1.15;margin:12px 0 14px;letter-spacing:-.01em}
+  .lead{color:var(--muted);max-width:720px;font-size:17px}
+  .stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .stat{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:120px}
+  .stat b{display:block;font-size:26px;color:var(--accent);line-height:1.1}
+  .stat span{color:var(--muted);font-size:13px}
+  nav.toc{position:sticky;top:0;z-index:5;background:rgba(14,16,20,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 20px;scrollbar-width:none}
+  nav.toc a{white-space:nowrap;color:var(--muted);text-decoration:none;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid transparent}
+  nav.toc a:hover{color:var(--text);border-color:var(--line)}
+  section{padding:48px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:clamp(22px,3vw,30px);margin:0 0 8px;letter-spacing:-.01em}
+  .sub{color:var(--muted);margin:0 0 24px;max-width:760px}
+  h3{font-size:18px;margin:28px 0 12px;color:var(--accent)}
+  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .card h4{margin:0 0 6px;font-size:17px}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:rgba(245,179,66,.15);color:var(--accent);font-weight:700;margin-bottom:10px}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+  table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px}
+  th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em;background:rgba(255,255,255,.03)}
+  tr:last-child td{border-bottom:0}
+  .ok{color:var(--ok);font-weight:700}.no{color:var(--no);font-weight:700}.so{color:var(--so);font-weight:700}
+  details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 10px;overflow:hidden}
+  summary{cursor:pointer;padding:16px 20px;list-style:none;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  summary::-webkit-details-marker{display:none}
+  summary .name{font-weight:700;font-size:17px}
+  summary .tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+  summary .arrow{margin-left:auto;color:var(--muted);transition:transform .2s}
+  details[open] .arrow{transform:rotate(180deg)}
+  .body{padding:0 20px 18px;border-top:1px solid var(--line)}
+  .body dl{display:grid;grid-template-columns:150px 1fr;gap:8px 16px;margin:14px 0 0;font-size:15px}
+  .body dt{color:var(--muted)}
+  .body dd{margin:0}
+  .take{margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(79,209,139,.08);border:1px solid rgba(79,209,139,.25);font-size:15px}
+  .take b{color:var(--ok)}
+  .avoid{margin-top:8px;padding:12px 14px;border-radius:10px;background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.25);font-size:15px}
+  .avoid b{color:var(--no)}
+  .region{margin:34px 0 12px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  ul.clean{padding-left:20px;margin:0}
+  ul.clean li{margin:0 0 8px}
+  .rec{display:grid;gap:12px}
+  .rec .card{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+  .rec .num{margin:2px 0 0}
+  .rec .card h4{margin:0 0 4px}
+  .who{display:inline-block;margin-top:8px;font-size:12px;color:var(--accent);border:1px solid rgba(245,179,66,.35);border-radius:999px;padding:2px 10px}
+  .refs .card h4 a{text-decoration:none}
+  footer{padding:36px 0 60px;color:var(--muted);font-size:14px}
+  @media (max-width:640px){
+    .body dl{grid-template-columns:1fr;gap:2px 0}
+    .body dt{margin-top:8px;font-size:13px}
+    header{padding:40px 0 30px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Для компании «Спектр» · 23 сентября 2026</div>
+    <h1>Как выглядят сайты компаний, которые дают звук, свет и экраны на мероприятия</h1>
+    <p class="lead">Разобрали 19 сайтов в шести регионах по одной схеме: что продают, как показывают цены, как собирают заявку, чем вызывают доверие и как выглядят. Ивент-агентства не смотрели: с ними «Спектр» дружит, а не соревнуется.</p>
+    <div class="stats">
+      <div class="stat"><b>19</b><span>сайтов разобрано</span></div>
+      <div class="stat"><b>7</b><span>Россия</span></div>
+      <div class="stat"><b>3</b><span>Казахстан и Беларусь</span></div>
+      <div class="stat"><b>9</b><span>Европа, США, Япония, Китай</span></div>
+      <div class="stat"><b>0</b><span>российских сайтов с 44-ФЗ на главной</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a href="#findings">Главное</a>
+  <a href="#russia">Россия: таблица</a>
+  <a href="#cards">Все 19 сайтов</a>
+  <a href="#abroad">Что делают лучше за рубежом</a>
+  <a href="#recs">Что взять «Спектру»</a>
+  <a href="#refs">Образцы для дизайна</a>
+  <a href="#method">Как смотрели</a>
+</div></nav>
+
+<section id="findings"><div class="wrap">
+  <h2>Главное в пяти пунктах</h2>
+  <p class="sub">Российский рынок сайтов в этой нише выглядит одинаково, и в этом шанс.</p>
+  <div class="grid">
+    <div class="card"><div class="num">1</div><h4>Первый экран у всех для поисковика</h4><p>«Аренда звука и света в Москве». Только один сайт из семи говорит про задачу клиента: «Решим все технические вопросы вашего мероприятия».</p></div>
+    <div class="card"><div class="num">2</div><h4>Никто не обещает срок расчёта</h4><p>Ни «за час», ни «за день». В Казахстане обещают два часа, в Японии «в тот же день». «Расчёт за 15–20 минут» на первом экране будет единственным на российском рынке.</p></div>
+    <div class="card"><div class="num">3</div><h4>Про госзаказ на главных не пишет никто</h4><p>Ни 44-ФЗ, ни 223-ФЗ, ни «работаем с бюджетными организациями». У fvis.ru на внутренней странице есть только фраза про техзадание для тендера. Парки и муниципалитеты увидят это первым у «Спектра».</p></div>
+    <div class="card"><div class="num">4</div><h4>Агентствам никто не говорит «это для вас»</h4><p>Страница для агентств есть только у Party365, и там это просто скидки. За рубежом для профи делают отдельный вход: «аренда для коллег», «кабинет для профессионалов».</p></div>
+    <div class="card"><div class="num">5</div><h4>Доверие строят на больших цифрах</h4><p>«1000+ единиц техники», «3000 проектов», «100% довольных клиентов». Живой команды по именам почти нет. Цены открыты только у двух сайтов: комплекты на 100 гостей стоят 170 тысяч рублей.</p></div>
+    <div class="card"><div class="num">6</div><h4>Дизайн: светлые каталоги</h4><p>Сотни карточек оборудования, местами пустые картинки и картинки из нейросети. Тёмный «сценический» стиль с живыми фото света встречается только за пределами России.</p></div>
+  </div>
+</div></section>
+
+<section id="russia"><div class="wrap">
+  <h2>Россия: семь сайтов рядом</h2>
+  <p class="sub">Зелёное есть, красное нет, жёлтое частично. Смотрели главную и одну-две ключевые страницы.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Сайт</th><th>Кто это</th><th>Цены</th><th>Срок расчёта</th><th>Мессенджеры</th><th>Для агентств</th><th>Госзаказ</th><th>Команда по именам</th><th>Вид</th></tr></thead>
+    <tbody>
+      <tr><td><b>fvis.ru</b><br><small>Fresh Vision Show, с 2005</small></td><td>Подрядчик, прокат, своя площадка и видеостудия</td><td class="no">по запросу</td><td class="no">нет</td><td class="ok">WhatsApp, Telegram</td><td class="no">нет</td><td class="so">только про ТЗ для тендера внутри</td><td class="ok">да</td><td>светлый, живые фото, «комбайн»</td></tr>
+      <tr><td><b>systemrental.ru</b><br><small>«Система», с 2015</small></td><td>Подрядчик под ключ</td><td class="ok">комплекты 170 / 340 / 700 тыс.</td><td class="no">нет</td><td class="no">не нашли</td><td class="no">нет</td><td class="no">нет</td><td class="no">нет</td><td>современный шаблон, пустые картинки</td></tr>
+      <tr><td><b>lighttechnics.ru</b><br><small>Light Technics, с 2008</small></td><td>Прокат для профи</td><td class="no">по запросу, «скидки до 50%»</td><td class="no">нет</td><td class="ok">WhatsApp, Telegram</td><td class="no">нет</td><td class="no">нет</td><td class="no">нет</td><td>бело-синий каталог</td></tr>
+      <tr><td><b>rentapro.ru</b><br><small>Renta PRO, с 1998</small></td><td>Прокат и подрядчик</td><td class="no">нет</td><td class="no">нет</td><td class="no">нет, только телефон</td><td class="no">нет</td><td class="no">нет</td><td class="no">нет</td><td>минимализм, пустовато</td></tr>
+      <tr><td><b>c-light.pro</b><br><small>СиЛайт</small></td><td>Прокат, подрядчик, производство</td><td class="so">прайс скачать</td><td class="no">нет</td><td class="no">нет, только телефон</td><td class="no">нет</td><td class="no">нет</td><td class="no">нет</td><td>перегружен каталогом</td></tr>
+      <tr><td><b>party365.ru</b><br><small>Party365, с 2007</small></td><td>Интернет-магазин аренды</td><td class="ok">за сутки по позициям</td><td class="no">нет</td><td class="ok">WhatsApp, Telegram, MAX</td><td class="ok">есть, скидки</td><td class="no">нет</td><td class="no">нет</td><td>устаревший магазин, картинки из нейросети</td></tr>
+      <tr><td><b>liveee.ru</b><br><small>LIVEEE, 5+ лет</small></td><td>Прокат с монтажом, есть генераторы</td><td class="no">нет, «дешевле на 25%»</td><td class="no">нет</td><td class="no">нет</td><td class="no">нет</td><td class="no">нет</td><td class="no">нет</td><td>устаревший, но заголовок про задачу клиента</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div></section>
+
+<section id="cards"><div class="wrap">
+  <h2>Все 19 сайтов по карточкам</h2>
+  <p class="sub">Нажмите на название, чтобы раскрыть. В каждой карточке: что взять себе и чего не делать.</p>
+
+  <div class="region">Россия</div>
+
+  <details><summary><span class="name">Fresh Vision Show</span><span class="tag">fvis.ru · Москва</span><span class="tag">главный конкурент</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Технический подрядчик, прокат, своя площадка и видеостудия. Шире «Спектра»: трансляции, виртуальная студия, подкасты.</dd>
+      <dt>Что продают</dt><dd>Звук, свет, видео, светодиодные экраны своего производства, сцена, электрика, персонал, транспорт. Конференции, корпоративы, банкеты, выставки.</dd>
+      <dt>Первый экран</dt><dd>«Ваш надёжный технический партнёр в мире организации мероприятий», кнопка «Заказать звонок». Есть страницы под каждый вид техники и под типы мероприятий.</dd>
+      <dt>Цены</dt><dd>По запросу. Скидка 20% при повторном заказе.</dd>
+      <dt>Заявка</dt><dd>Форма с капчей, телефон ежедневно 9–20, WhatsApp, Telegram, почта. Срока расчёта нет.</dd>
+      <dt>Доверие</dt><dd>300+ проектов, 500+ заказчиков, 1000+ единиц техники, отзывы с Яндекса 5,0, специалисты по именам, гарантия 3 года на экраны.</dd>
+      <dt>Агентства, госзаказ</dt><dd>Страницы для агентств нет. На главной и в «О нас» про 44-ФЗ ничего, на странице «Технический продакшн» одна фраза: «разработаем техническое задание для тендера».</dd>
+      <dt>Вид</dt><dd>Светлый, живые фото, много услуг и текста. Аккуратно, но не свежо.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> цифры своего парка, людей по именам, отзывы с Яндекс Карт, отдельные страницы под форматы мероприятий.</div>
+    <div class="avoid"><b>Не делать:</b> «комбайн» из 20 разделов. У «Спектра» сила в понятности.</div>
+  </div></details>
+
+  <details><summary><span class="name">«Система»</span><span class="tag">systemrental.ru · Москва</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Технический подрядчик под ключ: доставка, монтаж, работа на площадке, демонтаж. С 2015 года.</dd>
+      <dt>Что продают</dt><dd>Звук, свет, сцена, видео, спецэффекты. Концерты, конференции, корпоративы, свадьбы. Залы на 100–500 гостей.</dd>
+      <dt>Первый экран</dt><dd>«Аренда звука и света для мероприятий», кнопки «Подобрать оборудование» и «Оставить заявку».</dd>
+      <dt>Цены</dt><dd>Открытые комплекты по числу гостей: 170 тыс. на 100 гостей, 340 тыс. на 250, 700 тыс. на 500. Минимальный заказ от 100 тыс.</dd>
+      <dt>Заявка</dt><dd>Форма. Мессенджеров на главной не нашли.</dd>
+      <dt>Доверие</dt><dd>«С 2015 года», 1000+ единиц, бренды техники, имена артистов. Кейсов и людей нет.</dd>
+      <dt>Агентства, госзаказ</dt><dd>Нет и нет.</dd>
+      <dt>Вид</dt><dd>Современный шаблон, в каталоге пустые картинки. «Без души».</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> идею комплектов по числу гостей. Даже без цен: «Конференция до 100 человек, что входит».</div>
+    <div class="avoid"><b>Не делать:</b> каталог с пустыми картинками. Лучше меньше позиций, но с живыми фото.</div>
+  </div></details>
+
+  <details><summary><span class="name">Light Technics</span><span class="tag">lighttechnics.ru · Москва</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Прокат с услугами подрядчика, с 2008 года. Ориентир на профессионалов.</dd>
+      <dt>Что продают</dt><dd>Фермы, свет, звук, экраны, проекторы, подвес, спецэффекты. Концерты, театр, выставки.</dd>
+      <dt>Первый экран</dt><dd>«Аренда концертного оборудования», кнопка «Отправить заявку». Сайт устроен как каталог.</dd>
+      <dt>Цены</dt><dd>По запросу. Обещание «скидки до 50%».</dd>
+      <dt>Заявка</dt><dd>Форма, телефон, WhatsApp, Telegram, почта.</dd>
+      <dt>Доверие</dt><dd>Логотипы клиентов: театр Ермоловой, Сбербанк, IKEA. Фото проектов.</dd>
+      <dt>Агентства, госзаказ</dt><dd>Нет и нет, хотя среди клиентов театры.</dd>
+      <dt>Вид</dt><dd>Бело-синий аккуратный каталог. «Сделано, чтобы было».</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> логотипы узнаваемых клиентов работают даже по 3–4 штуки.</div>
+    <div class="avoid"><b>Не делать:</b> «скидки до 50%». Выглядит как распродажа.</div>
+  </div></details>
+
+  <details><summary><span class="name">Renta PRO</span><span class="tag">rentapro.ru · Москва</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Прокат и подрядчик, с 1998 года.</dd>
+      <dt>Что продают</dt><dd>Звук, свет, сцена, видео. Корпоративы, концерты, конференции.</dd>
+      <dt>Первый экран</dt><dd>«ЗВУК. СВЕТ. СЦЕНА. Техническое обеспечение мероприятий», кнопка «Вперёд!» (непонятно, что делает).</dd>
+      <dt>Цены</dt><dd>Нет, ни прайса, ни «от».</dd>
+      <dt>Заявка</dt><dd>Обратный звонок, телефон 11–20 в любой день. Мессенджеров нет.</dd>
+      <dt>Доверие</dt><dd>Портфолио с датами, свежий кейс для Яндекса летом 2026. Больше ничего.</dd>
+      <dt>Агентства, госзаказ</dt><dd>Нет и нет.</dd>
+      <dt>Вид</dt><dd>Минимализм, профессиональные фото техники, главная пустовата.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> кейсы с датами показывают, что компания живая. У «Спектра» это ежегодный фестиваль.</div>
+    <div class="avoid"><b>Не делать:</b> кнопку «Вперёд!». Кнопка должна говорить, что будет.</div>
+  </div></details>
+
+  <details><summary><span class="name">СиЛайт</span><span class="tag">c-light.pro · Москва</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Прокат, подрядчик и производство: 3D-визуализация, кейсы, светодиодные решения.</dd>
+      <dt>Что продают</dt><dd>Свет, звук, сцена, видео, экраны. Выступления, городские проекты, выставки, корпоративы.</dd>
+      <dt>Первый экран</dt><dd>«Аренда светового и звукового оборудования в Москве. Техническое обеспечение мероприятий. Под ключ!» Читается как текст для робота.</dd>
+      <dt>Цены</dt><dd>Кнопка «Скачать прайс».</dd>
+      <dt>Заявка</dt><dd>«Вам перезвонить?», только телефон.</dd>
+      <dt>Доверие</dt><dd>3000 проектов, 50+ сотрудников, 3765 единиц, «100% довольных клиентов». В каталоге видно «В наличии: N шт.».</dd>
+      <dt>Агентства, госзаказ</dt><dd>Нет и нет, хотя упомянуты городские проекты.</dd>
+      <dt>Вид</dt><dd>Современно, но перегружено каталогом.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> «В наличии: N шт.» показывает агентствам, что техника своя.</div>
+    <div class="avoid"><b>Не делать:</b> поисковые фразы на первом экране и «100% довольных клиентов».</div>
+  </div></details>
+
+  <details><summary><span class="name">Party365</span><span class="tag">party365.ru · Москва</span><span class="tag">есть страница для агентств</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Прокат с монтажом, по сути интернет-магазин аренды. С 2007 года. Уклон в частников.</dd>
+      <dt>Что продают</dt><dd>Звук, свет, экраны, DJ, караоке, сцена, спецэффекты. Свадьбы, корпоративы, конференции, открытия магазинов. Генераторов нет.</dd>
+      <dt>Первый экран</dt><dd>«Аренда оборудования для Event мероприятий», рядом «экономьте до 30%, доставка бесплатно».</dd>
+      <dt>Цены</dt><dd>Открытые за сутки по каждой позиции, зачёркнутые старые цены, скидки до 50% от 5 дней, комплекты.</dd>
+      <dt>Заявка</dt><dd>Форма, телефон, WhatsApp, Telegram и MAX, бесплатный выезд на площадку.</dd>
+      <dt>Доверие</dt><dd>Списки телеканалов, площадок (ВТБ Арена, Большой театр, Крокус), артистов. Кейсов с фото нет.</dd>
+      <dt>Агентства, госзаказ</dt><dd>Есть страница «Долгосрочное сотрудничество для event-агентств»: система скидок. Госзаказа нет.</dd>
+      <dt>Вид</dt><dd>Устаревший магазин, часть картинок сгенерирована нейросетью.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> страницу для агентств и MAX среди мессенджеров.</div>
+    <div class="avoid"><b>Не делать:</b> зачёркнутые цены и скидки 38%. Это рынок частников. Не ставить картинки из нейросети.</div>
+  </div></details>
+
+  <details><summary><span class="name">LIVEEE</span><span class="tag">liveee.ru · Москва</span><span class="tag">ближе всех по набору услуг</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Прокат с монтажом и поддержкой на площадке. Есть генераторы и шатры.</dd>
+      <dt>Что продают</dt><dd>Звук, свет, сцена, видео, эффекты, шатры, генераторы, звукорежиссёры и диджеи. От дней рождения до фестивалей.</dd>
+      <dt>Первый экран</dt><dd>«Решим все технические вопросы организации ваших мероприятий», кнопка «Закажите бесплатный выезд менеджера». Лучший заголовок из семи.</dd>
+      <dt>Цены</dt><dd>Прайса нет. «На 25% ниже, чем у конкурентов».</dd>
+      <dt>Заявка</dt><dd>Телефон, почта. Мессенджеров и формы на главной нет.</dd>
+      <dt>Доверие</dt><dd>Портфолио с названиями, раздел отзывов, «5+ лет опыта».</dd>
+      <dt>Агентства, госзаказ</dt><dd>Нет и нет.</dd>
+      <dt>Вид</dt><dd>Светлый, слабый стиль, устаревшая техническая часть.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> заголовок про задачу клиента, а не про оборудование.</div>
+    <div class="avoid"><b>Не делать:</b> «на 25% дешевле конкурентов» без доказательств.</div>
+  </div></details>
+
+  <div class="region">Казахстан и Беларусь</div>
+
+  <details><summary><span class="name">ALT Sound+</span><span class="tag">altsound.kz · Алматы</span><span class="tag">образец дизайна</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Технический подрядчик и прокат с 1999 года, проекты под ключ.</dd>
+      <dt>Первый экран</dt><dd>«27 лет опыта в техническом оснащении событий», кнопки «Обсудить проект» и «Оставить заявку».</dd>
+      <dt>Цены и заявка</dt><dd>Цен нет. WhatsApp, Telegram, телефон. Срок ответа не назван.</dd>
+      <dt>Доверие</dt><dd>20 000+ проектов, 95% возвращающихся клиентов, кейсы с именами (Park Live, Armin van Buuren), около 20 логотипов, основатель по имени, страница команды.</dd>
+      <dt>Агентства, госзаказ</dt><dd>Раздел «Партнёры» без условий. Госзаказа нет.</dd>
+      <dt>Вид</dt><dd>Тёмный фон, живые фото со сцен. Современно и «по-концертному».</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> тёмный фон с живыми фото света на сцене, страницу «Команда» с именами.</div>
+    <div class="avoid"><b>Не делать:</b> непонятные цифры вроде «40+ рост прибыли клиентов».</div>
+  </div></details>
+
+  <details><summary><span class="name">Stage Plan</span><span class="tag">stage-plan.kz · Алматы</span><span class="tag">гибрид с агентством</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Техника плюс шоу-программы, ведущие, кейтеринг. Берём только механику сайта.</dd>
+      <dt>Первый экран</dt><dd>«Превратите ваше мероприятие в незабываемое шоу!», кнопка «Рассчитать».</dd>
+      <dt>Цены и заявка</dt><dd>Квиз-калькулятор из нескольких вопросов вместо прайса. Обещание: расчёт в течение 2 часов. WhatsApp, телефон.</dd>
+      <dt>Доверие</dt><dd>«1089 мероприятий» (точная цифра выглядит честнее круглой), 4 отзыва с именами, логотипы Kaspi, Faberlic и акимата Алматы.</dd>
+      <dt>Агентства</dt><dd>Блок «Вы представитель event-агентства?» с индивидуальными условиями.</dd>
+      <dt>Вид</dt><dd>Светлый шаблонный лендинг с квизом.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> квиз «ответьте на 4 вопроса», срок расчёта, блок для агентств, логотип городской власти как знак для муниципалов.</div>
+    <div class="avoid"><b>Не делать:</b> смешивать технику с ведущими и кейтерингом.</div>
+  </div></details>
+
+  <details><summary><span class="name">STORM</span><span class="tag">stormproduct.by · Минск</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Технический подрядчик и прокат, одностраничный сайт.</dd>
+      <dt>Первый экран</dt><dd>«Техническое оснащение мероприятия под ключ», кнопка «Оставить заявку».</dd>
+      <dt>Цены и заявка</dt><dd>По запросу. Форма, телефон, Telegram, Instagram.</dd>
+      <dt>Доверие</dt><dd>4 кейса с описанием, блок «Как мы работаем» в 4 шага.</dd>
+      <dt>Вид</dt><dd>Минимализм, иконки и текст, мало фото.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> компактный формат с блоком «Как мы работаем». Похоже на масштаб «Спектра».</div>
+    <div class="avoid"><b>Не делать:</b> сайт без фото. Свет и сцену надо показывать.</div>
+  </div></details>
+
+  <div class="region">Европа</div>
+
+  <details><summary><span class="name">London Audio Visual</span><span class="tag">londonaudiovisual.co.uk · Лондон</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Прокат и технический продакшн, плюс студии и застройка стендов.</dd>
+      <dt>Первый экран</dt><dd>Заголовок с услугами и городом, кнопка «Оставить запрос», под ней телефон и часы работы.</dd>
+      <dt>Структура</dt><dd>Отдельная страница на каждую пару «услуга × формат»: экран для конференции, экран для выставки, экран для показа.</dd>
+      <dt>Доверие</dt><dd>Логотипы (Netflix), кейсы, команда, «10 000 кв. футов склада», сертификат экологичного продакшна.</dd>
+      <dt>Агентства</dt><dd>Ссылка «Trade Rental»: аренда для коллег по цеху.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> «одна услуга × один формат = одна страница», телефон с часами прямо под кнопкой.</div>
+    <div class="avoid"><b>Не делать:</b> поисковый заголовок в лоб на первом экране.</div>
+  </div></details>
+
+  <details><summary><span class="name">Rental Supplier</span><span class="tag">rental-supplier.nl · Амстердам</span><span class="tag">образец дизайна</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Прокат и подрядчик по Нидерландам, Бельгии, Германии, Франции.</dd>
+      <dt>Первый экран</dt><dd>«AV Rentals. Event Solutions. Tech Wizards.» Тон с характером и юмором.</dd>
+      <dt>Структура</dt><dd>Четыре уровня услуги: самовывоз, доставка, монтаж, под ключ с техником. У каждой позиции метка сложности: «включил и работает», «нужны знания», «для профи».</dd>
+      <dt>Цены</dt><dd>Открытые за сутки, понятная формула за несколько дней.</dd>
+      <dt>Агентства</dt><dd>«PRO AV Account»: отдельный кабинет для профессионалов, разовым клиентам недоступен.</dd>
+      <dt>Вид</dt><dd>Тёмная тема, реальные фото техники, современно.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> метки сложности (частник поймёт, зачем нужен техник), отдельный статус для агентств, уровни услуги.</div>
+    <div class="avoid"><b>Не делать:</b> интернет-магазин. У «Спектра» ставка на расчёт и сопровождение.</div>
+  </div></details>
+
+  <details><summary><span class="name">Event Production Group</span><span class="tag">eventproductiongroup.co.uk · Манчестер</span><span class="tag">образец первого экрана</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Технический подрядчик и прокат по всей Британии.</dd>
+      <dt>Первый экран</dt><dd>Заголовок, одно поясняющее предложение (что делаем, для каких событий, своя команда), кнопка «Запросить расчёт». Обещают «бесплатный быстрый расчёт».</dd>
+      <dt>Заявка</dt><dd>В форме есть поле «место проведения». Телефон, WhatsApp, работа 8–20 семь дней в неделю.</dd>
+      <dt>Доверие</dt><dd>Логотипы (Hilton, Хитроу), отзывы из Google с именами, процесс из 8 шагов, свой проектный менеджер на каждое событие.</dd>
+      <dt>Вид</dt><dd>Светлый, чистый, фирменные фото сцены и света.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> первый экран целиком, поле «где мероприятие», работу 7 дней в неделю как сигнал.</div>
+    <div class="avoid"><b>Не делать:</b> 40 страниц под города. «Спектру» хватит Москвы и области.</div>
+  </div></details>
+
+  <div class="region">США</div>
+
+  <details><summary><span class="name">Corporate Lighting &amp; Audio</span><span class="tag">corplighting.com · Новый Орлеан</span><span class="tag">образец дизайна</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Технический продакшн, прокат вынесен на отдельный сайт.</dd>
+      <dt>Первый экран</dt><dd>Эмоциональный заголовок «Ваша идея, усиленная», кнопка «Забронировать событие».</dd>
+      <dt>Структура</dt><dd>Два входа: «продакшн под ключ» и «просто аренда». Страницы «Наш процесс» и «Познакомьтесь с командой».</dd>
+      <dt>Доверие</dt><dd>Видео-кейсы, команда, логотипы клиентов, работа с независимыми продюсерами (то есть с агентствами).</dd>
+      <dt>Вид</dt><dd>Тёмный фон, живые фото и видео, современно.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> разделение «под ключ» и «отдельно», видео-кейсы, страницы процесса и команды.</div>
+    <div class="avoid"><b>Не делать:</b> слишком абстрактный заголовок, из которого не ясно, чем занимается компания.</div>
+  </div></details>
+
+  <details><summary><span class="name">Rob Alberti Event Services</span><span class="tag">robalberti.com · Новая Англия</span><span class="tag">для частников</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Небольшая компания: диджеи на свадьбы, световое оформление, аренда, корпоративы.</dd>
+      <dt>Первый экран</dt><dd>Кнопки «Проверить, свободна ли ваша дата» и «Собрать расчёт».</dd>
+      <dt>Цены</dt><dd>Прайса нет, есть конструкторы расчёта для диджея и для света.</dd>
+      <dt>Доверие</dt><dd>Истории реальных свадеб с именами пар, сотрудники с биографиями, «за кулисами», статья «Что даст свет вашей свадьбе».</dd>
+      <dt>Вид</dt><dd>Светлый, тёплый, живые фото свадеб.</dd>
+    </dl>
+    <div class="take"><b>Взять для частников:</b> «Проверить дату», галереи по типу площадки (шатёр, загородный дом, зал), объясняющие статьи.</div>
+    <div class="avoid"><b>Не делать:</b> сайт целиком свадебным. У «Спектра» частники не главные.</div>
+  </div></details>
+
+  <details><summary><span class="name">CPR Multimedia Solutions</span><span class="tag">cprmms.com · Вашингтон</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Технический подрядчик с 1988 года, конференции до 5000 человек, мобильные экраны на прицепе.</dd>
+      <dt>Первый экран</dt><dd>«Ваш надёжный партнёр по техническому продакшну», кнопки «Связаться» и «Нужен быстрый расчёт». Слоган «Live Events. Done Right.»</dd>
+      <dt>Доверие</dt><dd>5 отзывов с должностями и компаниями, членство в ассоциации организаторов встреч, живые фото. Раздел «Ресурсы»: реквизиты, формы, вопросы и ответы.</dd>
+      <dt>Вид</dt><dd>Тёмная навигация, живые фото, современно без изысков.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> отзывы с должностью и компанией, раздел «Ресурсы» для бухгалтерий и госзаказчиков.</div>
+    <div class="avoid"><b>Не делать:</b> меню из услуг, которые почти не заказывают.</div>
+  </div></details>
+
+  <div class="region">Япония</div>
+
+  <details><summary><span class="name">ACOSTE</span><span class="tag">acoste.jp · Осака</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Прокат и подрядчик по всей Японии: экраны, звук, свет, трансляции.</dd>
+      <dt>Первый экран</dt><dd>«Оформим всё пространство целиком, подарим событию эмоцию». Главная кнопка: телефон.</dd>
+      <dt>Структура</dt><dd>Короткое меню из 5–6 пунктов по видам техники, блок «4 причины», кейсы с фото.</dd>
+      <dt>Вид</dt><dd>Чистый, сдержанный, живые фото.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> короткое меню, блок «4 причины», кейсы.</div>
+    <div class="avoid"><b>Не делать:</b> телефон единственной кнопкой. Клиенты «Спектра» пишут в мессенджеры.</div>
+  </div></details>
+
+  <details><summary><span class="name">Global Stage</span><span class="tag">gloval-stage.com · Осака</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Прокат и продажа больших LED-экранов плюс сцена, звук, свет, генераторы.</dd>
+      <dt>Первый экран</dt><dd>«Лучшее соотношение цены и качества в Японии», кнопка «Связаться».</dd>
+      <dt>Цены</dt><dd>Открытые таблицы по дням и типу экрана, пакеты «всё включено».</dd>
+      <dt>Заявка</dt><dd>«Заполнение за 30 секунд, расчёт в тот же или на следующий день». Фраза «сравнивайте нас с другими, мы только рады».</dd>
+      <dt>Доверие</dt><dd>Кейсы разложены по размеру экрана, «оборудование своё, без субподряда», большой FAQ, в том числе «что если дождь».</dd>
+      <dt>Вид</dt><dd>Тёмный, очень плотный текст, «продающая простыня».</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> «форма за 30 секунд» и срок расчёта, FAQ про дождь и электричество, фразу «сравнивайте, мы не боимся».</div>
+    <div class="avoid"><b>Не делать:</b> такую плотность текста.</div>
+  </div></details>
+
+  <div class="region">Китай</div>
+
+  <details><summary><span class="name">Kuowei Culture</span><span class="tag">kwshow.com · Гуанчжоу</span><span class="tag">гибрид</span><span class="arrow">▼</span></summary><div class="body">
+    <dl>
+      <dt>Кто</dt><dd>Прокат, технический продакшн и планирование мероприятий с 2013 года. Годовые собрания компаний, гала-концерты, фестивали.</dd>
+      <dt>Первый экран</dt><dd>«Сцена под ключ в одном окне», кнопка «Оставьте сообщение, получите решение».</dd>
+      <dt>Заявка</dt><dd>Форма, горячая линия, WeChat как главный канал.</dd>
+      <dt>Доверие</dt><dd>Руководитель проектов по имени с 27-летним стажем, 6 крупных кейсов, членство в ассоциации и государственная квалификация по сценическим работам рядом с кейсами, описанный процесс.</dd>
+      <dt>Вид</dt><dd>Светлый, живые фото и иконки, без современных приёмов.</dd>
+    </dl>
+    <div class="take"><b>Взять:</b> показывать «допуски» рядом с кейсами. У «Спектра» это ИП и ООО, 44-ФЗ и 223-ФЗ, муниципальный фестиваль. Кнопка «получите решение», а не «оставьте заявку».</div>
+    <div class="avoid"><b>Не делать:</b> смешивать технику с планированием мероприятий.</div>
+  </div></details>
+</div></section>
+
+<section id="abroad"><div class="wrap">
+  <h2>Что за рубежом и в Казахстане делают лучше</h2>
+  <p class="sub">Не потому что там больше денег, а потому что там думают о человеке, который зашёл на сайт.</p>
+  <div class="grid">
+    <div class="card"><h4>Тёмный «сценический» дизайн</h4><p>Живые фото света на сцене на тёмном фоне. ALT Sound+, Corporate Lighting &amp; Audio, Rental Supplier. Для компании про свет это самый естественный вид.</p></div>
+    <div class="card"><h4>Команда по именам</h4><p>С фото за пультом, иногда с биографиями. Маленькая команда превращается в плюс: «приедут именно эти люди».</p></div>
+    <div class="card"><h4>Короткая анкета и срок расчёта</h4><p>«Анкета за 30 секунд, расчёт в тот же день». «Расчёт за 2 часа». Пять вопросов вместо длинной формы.</p></div>
+    <div class="card"><h4>Отдельный вход для профи</h4><p>«Аренда для коллег по цеху», «кабинет для профессионалов», «Вы представитель агентства?».</p></div>
+    <div class="card"><h4>Два пути: под ключ и по отдельности</h4><p>Агентству нужен только звукорежиссёр или пара приборов, компании всё сразу. Один сайт, два входа.</p></div>
+    <div class="card"><h4>Процесс и честные ответы</h4><p>«Как мы работаем» в 5–8 шагов. FAQ: «а если дождь», «а если нет розеток», «сколько времени на монтаж».</p></div>
+    <div class="card"><h4>Кейс как история</h4><p>Задача, что поставили, что получилось, сколько лет подряд зовут снова. Не просто фото в галерее.</p></div>
+    <div class="card"><h4>Кнопки, которые говорят, что будет</h4><p>«Нужен быстрый расчёт», «Проверить дату», «Получить решение». Не «Вперёд!» и не «Оставить заявку».</p></div>
+  </div>
+</div></section>
+
+<section id="recs"><div class="wrap">
+  <h2>Что из этого взять сайту «Спектр»</h2>
+  <p class="sub">Десять решений, каждое привязано к тому, для кого оно.</p>
+  <div class="rec">
+    <div class="card"><div class="num">1</div><div><h4>Первый экран: обещание, а не поисковая фраза</h4><p>«Звук, свет, экраны и электричество для вашего мероприятия. Расчёт за 15–20 минут». Кнопки «Написать в Telegram» и «Написать в MAX».</p><span class="who">все клиенты</span></div></div>
+    <div class="card"><div class="num">2</div><div><h4>Страница «Ивент-агентствам»</h4><p>Постоянный технический подрядчик, свой парк плюс добор у партнёров, документы от ООО или ИП, быстрая смета для клиента агентства.</p><span class="who">агентства, клиент №1</span></div></div>
+    <div class="card"><div class="num">3</div><div><h4>Блок «Паркам, учреждениям и госзаказчикам»</h4><p>Прямо написать: работаем по 44-ФЗ и 223-ФЗ, есть ООО и ИП, все закрывающие документы, опыт муниципального фестиваля.</p><span class="who">парки и муниципалитеты</span></div></div>
+    <div class="card"><div class="num">4</div><div><h4>Пушкинский театральный фестиваль как история</h4><p>Задача, что поставили, сколько лет подряд, фото и короткое видео. «Каждый год зовут снова» заменит отсутствие отзывов.</p><span class="who">муниципалы и агентства</span></div></div>
+    <div class="card"><div class="num">5</div><div><h4>Команда по именам и ролям</h4><p>Звукорежиссёр, художник по свету, техник. Живые фото за пультом. Не «50+ сотрудников», а люди.</p><span class="who">компании и частники</span></div></div>
+    <div class="card"><div class="num">6</div><div><h4>Два входа: «Под ключ» и «Отдельно»</h4><p>Звук, свет, экран, генератор, подиум, персонал. Агентствам чаще нужно отдельно, компаниям под ключ.</p><span class="who">агентства и компании</span></div></div>
+    <div class="card"><div class="num">7</div><div><h4>Страницы под форматы без цен, но с составом</h4><p>«Конференция до 100 человек», «Корпоратив», «Свадьба до 80 гостей», «Мероприятие там, где нет электричества». Что обычно входит.</p><span class="who">компании и частники, плюс поиск</span></div></div>
+    <div class="card"><div class="num">8</div><div><h4>Электричество как отдельная сильная тема</h4><p>У российских сайтов генераторы есть только у одного, строчкой в меню. «Нет розеток? Привезём генератор, разведём кабели, поставим звук и свет».</p><span class="who">парки, загородные свадьбы</span></div></div>
+    <div class="card"><div class="num">9</div><div><h4>Анкета на пять вопросов вместо длинной формы</h4><p>Дата, место, формат и число гостей, что нужно, куда написать. Поле «где мероприятие» обязательно.</p><span class="who">все клиенты</span></div></div>
+    <div class="card"><div class="num">10</div><div><h4>«Как мы работаем» и «Частые вопросы» на человеческом языке</h4><p>Заявка, расчёт, договор, монтаж, работа, демонтаж. Ответы: «а если дождь», «работаете ли с НДС», «сколько времени нужно на монтаж».</p><span class="who">снимает страхи частников и вопросы бухгалтерий</span></div></div>
+  </div>
+  <h3>Чего не делать</h3>
+  <ul class="clean">
+    <li>«100% довольных клиентов», «скидки до 50%», «на 25% дешевле конкурентов». У всех, кто так пишет, это выглядит дёшево.</li>
+    <li>Стоковые фото и картинки из нейросети. У «Спектра» есть настоящие фото с фестиваля.</li>
+    <li>Поисковые фразы на первом экране и «комбайн» из двадцати разделов.</li>
+  </ul>
+</div></section>
+
+<section id="refs" class="refs"><div class="wrap">
+  <h2>Образцы для дизайна</h2>
+  <p class="sub">Их стоит открыть глазами перед тем, как выбирать вариант дизайна.</p>
+  <div class="grid">
+    <div class="card"><h4><a href="https://www.altsound.kz/" target="_blank" rel="noopener">ALT Sound+</a></h4><p>Тёмный фон, живые фото со сцены, команда, логотипы. Лучший «свежий» сайт на русском языке в выборке.</p></div>
+    <div class="card"><h4><a href="https://rental-supplier.nl/en/" target="_blank" rel="noopener">Rental Supplier</a></h4><p>Характер в тоне, уровни услуги, метки сложности, кабинет для профи.</p></div>
+    <div class="card"><h4><a href="https://eventproductiongroup.co.uk/" target="_blank" rel="noopener">Event Production Group</a></h4><p>Образцовый первый экран: заголовок, одно предложение, кнопка «Запросить расчёт». Процесс по шагам.</p></div>
+    <div class="card"><h4><a href="https://www.corplighting.com/" target="_blank" rel="noopener">Corporate Lighting &amp; Audio</a></h4><p>Тёмная эстетика, видео-кейсы, «продакшн / аренда», страницы процесса и команды.</p></div>
+    <div class="card"><h4><a href="https://stage-plan.kz/" target="_blank" rel="noopener">Stage Plan</a></h4><p>Не за визуал, а за механику: квиз, срок расчёта «2 часа», блок для агентств.</p></div>
+    <div class="card"><h4><a href="https://robalberti.com/" target="_blank" rel="noopener">Rob Alberti</a></h4><p>Для частников: «Проверить дату», галереи по типу площадки, объясняющие статьи.</p></div>
+  </div>
+</div></section>
+
+<section id="method"><div class="wrap">
+  <h2>Как смотрели</h2>
+  <ul class="clean">
+    <li>19 сайтов, у каждого главная и одна-две ключевые страницы. Если в карточке написано «нет», значит на этих страницах не нашли.</li>
+    <li>Дизайн оценивали по содержимому страниц, без скриншотов. Поэтому образцы для дизайна лучше открыть самим.</li>
+    <li>Ивент-агентства полного цикла не смотрели специально. Один казахстанский сайт оказался гибридом, у него взяли только механику.</li>
+    <li>Не открылись четыре сайта: rentav.nl, rental-vision.com, bjavrent.com, chaoniled.com.</li>
+    <li>Мелких подрядчиков масштаба «Спектра» в поиске почти нет: они работают по сарафану, в чатах и на Авито, без сайтов. Поэтому в поиске клиент сравнивает «Спектр» именно с этими компаниями.</li>
+  </ul>
+</div></section>
+
+<footer><div class="wrap">Подготовлено для сайта компании «Спектр», 23 сентября 2026. Все упомянутые сайты и названия принадлежат их владельцам.</div></footer>
+
+</body>
+</html>
